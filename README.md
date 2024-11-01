@@ -1,0 +1,2 @@
+# CoinFlip
+ My little game :)
