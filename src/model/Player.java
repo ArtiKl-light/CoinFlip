@@ -5,8 +5,16 @@ import java.util.List;
 
 public class Player {
 
+    private final long startMoney = 10;
+
+    private String name;
     private List<Coin> coinList = new ArrayList<>();
     private long money;
+
+    public Player(String name) {
+        this.name = name;
+        this.money = startMoney;
+    }
 
 
     public void getCoinList() {
@@ -39,4 +47,15 @@ public class Player {
         this.money -= money;
     }
 
+    public void removeCoinFromList(Coin coin) {
+        coinList.remove(coin);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
