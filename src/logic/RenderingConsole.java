@@ -10,12 +10,14 @@ public class RenderingConsole {
     public static void printMainMenu() {
 
         System.out.println(
-                "~~~~~~ Menu ~~~~~~ \n" +
-                " 1) Начать игру    \n" +
-                " 2) Загрузить игру \n" +
-                " 3) Список лидеров \n" +
-                 "4) Выйти из игры    " +
-                "~~~~~~~~~~~~~~~~~~   ");
+                """
+                        ~~~~~~ Menu ~~~~~~      \s
+                         1) Начать игру         \s
+                         2) Загрузить игру      \s
+                         3) Список лидеров      \s
+                        4) Выйти из игры        \s
+                        ~~~~~~~~~~~~~~~~~~      \s
+                """);
     }
 
     public static void printNull() {
@@ -24,5 +26,17 @@ public class RenderingConsole {
 
     public static void printChoosePlayerName() {
         System.out.println("Задайте имя игроку");
+    }
+
+    public static void printPlayerMenu() {
+        System.out.println(
+                """
+                        ~~~~~~~~~ Player Menu ~~~~~~~      \s
+                         1) Бросить монетку (цена 1)       \s
+                         2) Список монет                   \s
+                         3) Обменник                       \s
+                         4) Выйти в главное меню           \s
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      \s
+                 """);
     }
 }

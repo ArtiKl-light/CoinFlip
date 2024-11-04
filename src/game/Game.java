@@ -1,16 +1,15 @@
 package game;
 
 import logic.RenderingConsole;
-import model.Player;
 
 import java.util.Scanner;
 
 public class Game {
 
-    Scanner scanner = new Scanner(System.in);
-    boolean checkGame;
+    static Scanner scanner = new Scanner(System.in);
+    static boolean checkGame;
 
-    public void run() {
+    public static void run() {
 
         checkGame = true;
 
@@ -26,26 +25,28 @@ public class Game {
             }
 
         }
+
+        System.out.println("Игра закрылась"); // log info
     }
 
 
 
-    private void caseOne() {
+    private static void caseOne() {
         RenderingConsole.printChoosePlayerName();
         RenderingConsole.printInput();
-        GamePlayer.run(scanner.nextLine());
+        GamePlayer.run(new Scanner(System.in).nextLine());
     }
 
-    private void caseTwo() {
+    private static void caseTwo() {
         RenderingConsole.printNull();
     }
 
-    private void caseThree() {
+    private static  void caseThree() {
         RenderingConsole.printNull();
     }
 
-    private void caseFour() {
-        System.exit(0);
+    private static void caseFour() {
+        checkGame = false;
     }
 
 

@@ -5,20 +5,20 @@ import java.util.List;
 
 public class GameModel {
 
-    private List<Player> playerList = new ArrayList<>();
+    private static List<Player> playerList = new ArrayList<>();
 
-    public void addPlayerToList(Player player) {
+    public static void addPlayerToList(Player player) {
         playerList.add(player);
     }
 
-    public Player getPlayerFromList(String playerName) {
+    public static Player getPlayerFromList(String playerName) {
         return playerList.stream()
                 .filter(player -> player.getName().equals(playerName))
                 .findFirst()
                 .orElse(null);
     }
 
-    public List<Player> getPlayerList() {
+    public static List<Player> getPlayerList() {
         return playerList;
     }
 

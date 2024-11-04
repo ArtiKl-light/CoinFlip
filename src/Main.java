@@ -1,3 +1,4 @@
+import game.Game;
 import logic.RenderingConsole;
 import model.Coin;
 import model.Player;
