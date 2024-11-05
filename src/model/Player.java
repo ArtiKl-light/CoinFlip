@@ -17,10 +17,8 @@ public class Player {
     }
 
 
-    public void getCoinList() {
-        for (Coin c : coinList) {
-            System.out.print(c.getRarity() + " " + c.getValue() + " | ");
-        }
+    public List<Coin> getCoinList() {
+        return coinList;
     }
 
     public void dropCoinList() {

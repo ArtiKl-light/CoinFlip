@@ -1,6 +1,7 @@
 package game;
 
 
+import logic.MainLogic;
 import logic.RenderingConsole;
 import model.GameModel;
 import model.Player;
@@ -10,21 +11,23 @@ import java.util.Scanner;
 public class GamePlayer {
 
     private static boolean checkGame;
+    private static Scanner scanner;
+    private static Player player;
 
     public static void run(String playerName) {
 
-        Scanner scanner = new Scanner(System.in);
-        Player player = firstGetPlayer(playerName);
+        player = firstGetPlayer(playerName);
         checkGame = true;
 
         while (checkGame) {
 
-            RenderingConsole.printPlayerMenu();
+            RenderingConsole.printPlayerMenu(player);
             RenderingConsole.printInput();
+            scanner = new Scanner(System.in);
             switch (scanner.nextInt()) {
-                case 1 -> caseOne();
+                case 1 -> caseOne(player);
                 case 2 -> caseTwo();
-                case 3 -> caseThree();
+                case 3 -> caseThree(player);
                 case 4 -> caseFour();
             }
 
@@ -34,16 +37,20 @@ public class GamePlayer {
 
     }
 
-    private static void caseOne() {
-        RenderingConsole.printNull();
+    private static void caseOne(Player player) {
+        MainLogic.tossCoin(player);
     }
 
     private static void caseTwo() {
-        RenderingConsole.printNull();
+        RenderingConsole.printCoinList(player.getCoinList());
     }
 
-    private static void caseThree() {
-        RenderingConsole.printNull();
+    private static void caseThree(Player player) {
+        RenderingConsole.printWhoChooseMoney();
+        RenderingConsole.printInput();
+        scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        MainLogic.convertCoinToMoney(player, choice);
     }
 
     private static void caseFour() {
