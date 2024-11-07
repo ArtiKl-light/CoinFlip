@@ -14,9 +14,9 @@ public class GamePlayer {
     private static Scanner scanner;
     private static Player player;
 
-    public static void run(String playerName) {
+    public static void run(String playerName, Integer id) {
 
-        player = firstGetPlayer(playerName);
+        player = firstGetPlayer(id, playerName);
         checkGame = true;
 
         while (checkGame) {
@@ -32,7 +32,6 @@ public class GamePlayer {
             }
 
         }
-
 
 
     }
@@ -58,15 +57,12 @@ public class GamePlayer {
     }
 
 
-
-
-
-    private static Player firstGetPlayer(String playerName) {
+    private static Player firstGetPlayer(Integer id, String playerName) {
 
         Player player;
 
-        if (GameModel.getPlayerFromList(playerName) != null) {
-            player = GameModel.getPlayerFromList(playerName);
+        if (id != null && GameModel.getPlayerFromList(id) != null) {
+            player = GameModel.getPlayerFromList(id);
         } else {
             player = new Player(playerName);
             GameModel.addPlayerToList(player);

@@ -1,6 +1,7 @@
 package game;
 
 import logic.RenderingConsole;
+import model.GameModel;
 
 import java.util.Scanner;
 
@@ -30,19 +31,21 @@ public class Game {
     }
 
 
-
     private static void caseOne() {
         RenderingConsole.printChoosePlayerName();
         RenderingConsole.printInput();
-        GamePlayer.run(new Scanner(System.in).nextLine());
+        GamePlayer.run(new Scanner(System.in).nextLine(), 0);
     }
 
     private static void caseTwo() {
-        RenderingConsole.printNull();
+        RenderingConsole.printPlayerList(GameModel.getPlayerList());
+        RenderingConsole.printInput();
+        GamePlayer.run(null, new Scanner(System.in).nextInt());
+
     }
 
-    private static  void caseThree() {
-        RenderingConsole.printNull();
+    private static void caseThree() {
+        RenderingConsole.printLeaderBoard(GameModel.getPlayerList());
     }
 
     private static void caseFour() {

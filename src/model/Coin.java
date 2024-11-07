@@ -7,12 +7,10 @@ public class Coin {
 
     private final int value;
     private final RoleCoin rarity;
-    private final Date dateOfCreation;
 
     public Coin() {
         this.value = generateRandomCoinValue();
         this.rarity = generateRoleFromValue(value);
-        this.dateOfCreation = new Date();
     }
 
 
@@ -37,13 +35,13 @@ public class Coin {
         int randomValue = random.nextInt(100);
 
         if (randomValue < 40) {
-            return random.nextInt(5);
+            return random.nextInt(5) + 1;
         } else if (randomValue < 60) {
-            return random.nextInt(10);
+            return random.nextInt(10) + 1;
         } else if (randomValue < 80) {
-            return random.nextInt(15);
+            return random.nextInt(15) + 1;
         } else {
-            return random.nextInt(20);
+            return random.nextInt(20) + 1;
         }
 
     }
@@ -54,10 +52,6 @@ public class Coin {
 
     public RoleCoin getRarity() {
         return rarity;
-    }
-
-    public Date getDateOfCreation() {
-        return dateOfCreation;
     }
 
 }

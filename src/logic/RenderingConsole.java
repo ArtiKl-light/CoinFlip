@@ -17,18 +17,14 @@ public class RenderingConsole {
 
         System.out.println(
                 """
-                                                \s
-                        ~~~~~~ Menu ~~~~~~      \s
-                        1) Начать игру          \s
-                        2) Загрузить игру       \s
-                        3) Список лидеров       \s
-                        4) Выйти из игры        \s
-                        ~~~~~~~~~~~~~~~~~~      \s
-                """);
-    }
-
-    public static void printNull() {
-        System.out.println("Пока пусто");
+                                                        \s
+                                ~~~~~~ Menu ~~~~~~      \s
+                                1) Начать игру          \s
+                                2) Загрузить игру       \s
+                                3) Список лидеров       \s
+                                4) Выйти из игры        \s
+                                ~~~~~~~~~~~~~~~~~~      \s
+                        """);
     }
 
     public static void printChoosePlayerName() {
@@ -38,16 +34,16 @@ public class RenderingConsole {
     public static void printPlayerMenu(Player player) {
         System.out.print(
                 """
-                                                           \s
-                        ~~~~~~~~~ Player Menu ~~~~~~~      \s
-                         1) Бросить монетку (цена 1)       \s
-                         2) Список монет                   \s
-                         3) Обменник                       \s
-                         4) Выйти в главное меню           \s
-                 """);
+                                                                  \s
+                               ~~~~~~~~~ Player Menu ~~~~~~~      \s
+                                1) Бросить монетку (цена 1)       \s
+                                2) Список монет                   \s
+                                3) Обменник                       \s
+                                4) Выйти в главное меню           \s
+                        """);
         System.out.println(
-                "             | Баланс - " +   player.getMoney()   +
-                " |\n       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      \n");
+                "           | Баланс - " + player.getMoney() + " | " + player.getName() +
+                        " |\n       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~      \n");
     }
 
     public static void printWhoTossCoin(Coin coin) {
@@ -79,6 +75,25 @@ public class RenderingConsole {
         } else {
             System.out.println("\n | У вас нет ни одной монетки!");
         }
+    }
+
+    public static void printPlayerList(List<Player> playerList) {
+        for (Player player : playerList) {
+            System.out.println(player.getId() + " | " + player.getName() + " | " + player.getMoney());
+        }
+    }
+
+    public static void printLeaderBoard(List<Player> playerList) {
+
+        List<Player> sortedList = playerList;
+
+        sortedList.sort(new ComparatorByMoney());
+
+        System.out.println("~~~ Таблица лидеров ~~~");
+        for (Player player : sortedList) {
+            System.out.println(player.getMoney() + " | Имя - " + player.getName());
+        }
+
     }
 
 }

@@ -1,17 +1,21 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Player {
 
     private final long startMoney = 10;
 
+    private final int id;
     private String name;
     private List<Coin> coinList = new ArrayList<>();
     private long money;
 
+    private static int idCount = 1;
+
     public Player(String name) {
+        this.id = idCount++;
         this.name = name;
         this.money = startMoney;
     }
@@ -21,20 +25,12 @@ public class Player {
         return coinList;
     }
 
-    public void dropCoinList() {
-        this.coinList = null;
-    }
-
     public void addCoin(Coin coin) {
         coinList.add(coin);
     }
 
     public long getMoney() {
         return money;
-    }
-
-    public void dropMoney() {
-        this.money = 0;
     }
 
     public void addMoney(long money) {
@@ -53,7 +49,8 @@ public class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
     }
+
 }

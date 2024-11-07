@@ -3,6 +3,8 @@ package logic;
 import model.Coin;
 import model.Player;
 
+import java.util.Comparator;
+
 public class MainLogic {
 
     public static void convertCoinToMoney(Player player, int chooseCoinId) {
@@ -34,4 +36,12 @@ public class MainLogic {
         }
     }
 
+}
+
+class ComparatorByMoney implements Comparator<Player> {
+
+    @Override
+    public int compare(Player o1, Player o2) {
+        return Double.compare(o2.getMoney(), o1.getMoney());
+    }
 }
