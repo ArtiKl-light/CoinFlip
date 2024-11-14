@@ -96,4 +96,8 @@ public class RenderingConsole {
 
     }
 
+    public static void printInvalidInput() {
+        System.out.println("\n Неверный ввод");
+    }
+
 }

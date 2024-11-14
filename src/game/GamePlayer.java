@@ -6,6 +6,7 @@ import logic.RenderingConsole;
 import model.GameModel;
 import model.Player;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GamePlayer {
@@ -24,11 +25,15 @@ public class GamePlayer {
             RenderingConsole.printPlayerMenu(player);
             RenderingConsole.printInput();
             scanner = new Scanner(System.in);
-            switch (scanner.nextInt()) {
-                case 1 -> caseOne(player);
-                case 2 -> caseTwo();
-                case 3 -> caseThree(player);
-                case 4 -> caseFour();
+            try {
+                switch (scanner.nextInt()) {
+                    case 1 -> caseOne(player);
+                    case 2 -> caseTwo();
+                    case 3 -> caseThree(player);
+                    case 4 -> caseFour();
+                }
+            } catch (InputMismatchException e) {
+                RenderingConsole.printInvalidInput();
             }
 
         }
